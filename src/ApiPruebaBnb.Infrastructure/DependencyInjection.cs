@@ -4,6 +4,7 @@ using ApiPruebaBnb.Infrastructure.Persistence;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 
 namespace ApiPruebaBnb.Infrastructure;
 
@@ -17,6 +18,7 @@ public static class DependencyInjection
             throw new InvalidOperationException("Falta configurar ConnectionStrings:DefaultConnection.");
 
         services.AddScoped<DbConnection>(_ => new SqlConnection(connectionString));
+        services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
         services.AddScoped<IDatabaseHealthService, SqlServerHealthService>();
         return services;
     }

@@ -15,38 +15,34 @@ Ejemplo de una API basica para registrar y consultar pagos de servicios basicos(
 
 ## Instrucciones para iniciar
 
-Desde la carpeta del proyecto:
+Se debe ejecuta estos pasos **en este orden**, desde la carpeta del proyecto
 
-1. Si todavía no tienes `.env`, crealo copiando el ejemplo (si ya existe, conserva el tuyo y pasa al paso siguiente):
+1. realizar copia de `.env` y configura `MSSQL_SA_PASSWORD`, `DB_NAME` y `DB_USER` 
 
    ```bash
    cp .env.example .env
    ```
 
-2. Abre `.env` con tu editor y configura estos valores:
-
-   ```dotenv
-   MSSQL_SA_PASSWORD=DevOnly_Strong123!
-   DB_NAME=ApiPruebaBnb
-   DB_USER=sa
-   API_PORT=8080
-   SQL_PORT=1433
-   ```
-
-3. Construye e inicia los contenedores:
+2. Levanta la API y SQL Server:
 
    ```bash
-   docker compose up --build -d --remove-orphans
+   docker compose up --build -d
    ```
 
-4. Comprueba el estado y la API:
+3. Crea la base de datos y las migraciones de las tablas :
 
    ```bash
-   docker compose ps -a
-   curl http://localhost:8080/health
+   docker compose run --rm --build migrator
    ```
 
-   `/health` consulta la base configurada en `DB_NAME`: responde `200` con `{"status":"ok"}` si puede conectarse
+4. Comprueba la conexión de la API con la base:
+
+   ```bash
+   curl -i http://localhost:8080/health
+   ```
+
+   Debe responder `HTTP 200` con `{"status":"ok"}`
+   Si se configuraste otro `API_PORT` se debe cambair en la url
 
 ## Detener
 

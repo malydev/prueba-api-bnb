@@ -11,6 +11,17 @@ services:
         condition: service_healthy
     restart: unless-stopped
 
+  migrator:
+    profiles: ["tools"]
+    build:
+      context: .
+      target: migrator
+    environment:
+      ConnectionStrings__DefaultConnection: "Server=sqlserver,1433;Database=${DB_NAME:?Configura DB_NAME en .env};User Id=${DB_USER:?Configura DB_USER en .env};Password=${MSSQL_SA_PASSWORD:?Configura MSSQL_SA_PASSWORD en .env};Encrypt=True;TrustServerCertificate=True"
+    depends_on:
+      sqlserver:
+        condition: service_healthy
+
   sqlserver:
     image: mcr.microsoft.com/mssql/server:2022-latest
     platform: linux/amd64
