@@ -17,7 +17,7 @@ Ejemplo de una API basica para registrar y consultar pagos de servicios basicos(
 
 Desde la carpeta del proyecto:
 
-1. Si todavía no tienes `.env`, créalo copiando el ejemplo (si ya existe, conserva el tuyo y pasa al paso siguiente):
+1. Si todavía no tienes `.env`, crealo copiando el ejemplo (si ya existe, conserva el tuyo y pasa al paso siguiente):
 
    ```bash
    cp .env.example .env
@@ -46,7 +46,7 @@ Desde la carpeta del proyecto:
    curl http://localhost:8080/health
    ```
 
-   `/health` responde `{"status":"ok"}`. SQL Server está disponible
+   `/health` responde `{"status":"ok"}`. SQL Server este disponible
 
 ## Detener
 
@@ -54,7 +54,7 @@ Desde la carpeta del proyecto:
 docker compose down
 ```
 
-Para eliminar también los datos almacenados en SQL Server:
+Para eliminar tambien los datos almacenados en SQL Server:
 
 ```bash
 docker compose down -v
