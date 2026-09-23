@@ -38,11 +38,56 @@ Se debe ejecuta estos pasos **en este orden**, desde la carpeta del proyecto
 4. Comprueba la conexión de la API con la base:
 
    ```bash
-   curl -i http://localhost:8080/health
+    curl -i http://localhost:8080/api/health
    ```
 
    Debe responder `HTTP 200` con `{"status":"ok"}`
    Si se configuraste otro `API_PORT` se debe cambair en la url
+
+## Guardar un pago
+
+Con los contenedores iniciados y la base creada ejecuta el siguiente comando apra poder probar
+
+```bash
+curl -i -X POST http://localhost:8080/api/payments \
+  -H 'Content-Type: application/json' \
+  -d '{"customerId":"7adf74bd-5637-473f-a64c-dc63eeb75135","serviceProvider":"SERVICIOS ELECTRICOS S.A.","amount":120.50,"currency":"BOB"}'
+```
+
+Responde `201 Created`
+```bash
+{
+  "paymentId": "58620e82-61ba-40ba-bcd9-c334e92eae38",
+  "customerId": "7adf74bd-5637-473f-a64c-dc63eeb75135",
+  "serviceProvider": "SERVICIOS ELECTRICOS S.A.",
+  "amount": 120.5,
+  "currency": "BOB",
+  "status": "pendiente",
+  "createdAt": "2026-09-25T04:43:17.3519217+00:00"
+}
+```
+
+## Consultar pagos de un cliente
+
+```bash
+curl -i 'http://localhost:8080/api/payments?customerId=7adf74bd-5637-473f-a64c-dc63eeb75135'
+```
+
+Responde `200` con los pagos de ese cliente
+
+```bash
+[
+  {
+    "paymentId": "58620e82-61ba-40ba-bcd9-c334e92eae38",
+    "customerId": "7adf74bd-5637-473f-a64c-dc63eeb75135",
+    "serviceProvider": "SERVICIOS ELECTRICOS S.A.",
+    "amount": 120.5,
+    "currency": "BOB",
+    "status": "pendiente",
+    "createdAt": "2026-09-25T04:43:17.3519217+00:00"
+  }
+]
+```
 
 ## Detener
 

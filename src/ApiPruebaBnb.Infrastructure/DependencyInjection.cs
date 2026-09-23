@@ -1,6 +1,8 @@
 using System.Data.Common;
 using ApiPruebaBnb.Application.Services;
+using ApiPruebaBnb.Domain.Repositories;
 using ApiPruebaBnb.Infrastructure.Persistence;
+using ApiPruebaBnb.Infrastructure.Repositories;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,6 +22,7 @@ public static class DependencyInjection
         services.AddScoped<DbConnection>(_ => new SqlConnection(connectionString));
         services.AddDbContext<AppDbContext>(options => options.UseSqlServer(connectionString));
         services.AddScoped<IDatabaseHealthService, SqlServerHealthService>();
+        services.AddScoped<IPaymentRepository, PaymentRepository>();
         return services;
     }
 }
