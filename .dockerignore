@@ -1,0 +1,17 @@
+.git
+.gitignore
+.vscode
+.idea
+.vs
+bin
+obj
+TestResults
+*.user
+*.suo
+*.log
+*.trx
+coverage
+coverage.*
+.env
+.env.*
+!.env.example

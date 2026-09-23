@@ -1,0 +1,25 @@
+# .NET
+bin/
+obj/
+TestResults/
+*.trx
+*.user
+*.suo
+.vs/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Logs / temp
+*.log
+.tmp/
+tmp/
+temp/
+
+# Env
+.env
+.env.*
+!.env.example
+!.env.template
