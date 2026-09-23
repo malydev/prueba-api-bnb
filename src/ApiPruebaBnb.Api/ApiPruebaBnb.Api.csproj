@@ -4,4 +4,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../ApiPruebaBnb.Application/ApiPruebaBnb.Application.csproj" />
+    <ProjectReference Include="../ApiPruebaBnb.Infrastructure/ApiPruebaBnb.Infrastructure.csproj" />
+  </ItemGroup>
 </Project>

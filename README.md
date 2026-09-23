@@ -46,7 +46,7 @@ Desde la carpeta del proyecto:
    curl http://localhost:8080/health
    ```
 
-   `/health` responde `{"status":"ok"}`. SQL Server este disponible
+   `/health` consulta la base configurada en `DB_NAME`: responde `200` con `{"status":"ok"}` si puede conectarse
 
 ## Detener
 
