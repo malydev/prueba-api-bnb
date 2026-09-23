@@ -11,13 +11,13 @@
 
 ## Descripción
 
-Ejemplo de una API basica para registrar y consultar pagos de servicios basicos(agua, electricidad, telecomunicaciones) de clientes 
+Ejemplo de una API basica para registrar y consultar pagos de servicios basicos(agua, electricidad, telecomunicaciones) de clientes
 
 ## Instrucciones para iniciar
 
 Desde la carpeta del proyecto:
 
-1. Si todavia no tienes `.env`, créalo copiando el ejemplo (si ya existe, conserva el tuyo y pasa al paso siguiente):
+1. Si todavía no tienes `.env`, créalo copiando el ejemplo (si ya existe, conserva el tuyo y pasa al paso siguiente):
 
    ```bash
    cp .env.example .env
@@ -28,7 +28,7 @@ Desde la carpeta del proyecto:
    ```dotenv
    MSSQL_SA_PASSWORD=DevOnly_Strong123!
    DB_NAME=ApiPruebaBnb
-    DB_USER=sa
+   DB_USER=sa
    API_PORT=8080
    SQL_PORT=1433
    ```
@@ -36,7 +36,7 @@ Desde la carpeta del proyecto:
 3. Construye e inicia los contenedores:
 
    ```bash
-    docker compose up --build -d --remove-orphans
+   docker compose up --build -d --remove-orphans
    ```
 
 4. Comprueba el estado y la API:
@@ -46,13 +46,15 @@ Desde la carpeta del proyecto:
    curl http://localhost:8080/health
    ```
 
+   `/health` responde `{"status":"ok"}`. SQL Server está disponible
+
 ## Detener
 
 ```bash
 docker compose down
 ```
 
-Para eliminar tambien los datos de SQL Server y la base de datos:
+Para eliminar también los datos almacenados en SQL Server:
 
 ```bash
 docker compose down -v

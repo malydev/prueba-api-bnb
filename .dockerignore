@@ -5,6 +5,8 @@
 .vs
 bin
 obj
+**/bin
+**/obj
 TestResults
 *.user
 *.suo
