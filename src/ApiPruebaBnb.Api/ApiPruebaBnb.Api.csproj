@@ -7,5 +7,6 @@
   <ItemGroup>
     <ProjectReference Include="../ApiPruebaBnb.Application/ApiPruebaBnb.Application.csproj" />
     <ProjectReference Include="../ApiPruebaBnb.Infrastructure/ApiPruebaBnb.Infrastructure.csproj" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
   </ItemGroup>
 </Project>

@@ -41,8 +41,10 @@ Se debe ejecuta estos pasos **en este orden**, desde la carpeta del proyecto
     curl -i http://localhost:8080/api/health
    ```
 
-   Debe responder `HTTP 200` con `{"status":"ok"}`
-   Si se configuraste otro `API_PORT` se debe cambair en la url
+    Debe responder `HTTP 200` con `{"status":"ok"}`
+    Si se configuraste otro `API_PORT` se debe cambair en la url
+
+La documentación esta disponible en <http://localhost:8080/api/swagger>
 
 ## Guardar un pago
 
